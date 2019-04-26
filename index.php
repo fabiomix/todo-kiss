@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <title>TO-DO</title>
+    <title><?php echo $todo_settings['page_title']; ?></title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
@@ -31,7 +31,10 @@
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="./">To-Do</a>
+          <a class="navbar-brand" href="./">
+            <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+            <?php echo $todo_settings['page_title']; ?>
+          </a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav"></ul>
@@ -64,7 +67,7 @@
                 <?php } ?>
                 <?php if ($task['done']) { ?>
                 <button type="submit" name="delete_task" value="<?php echo $task['id']; ?>" 
-                  class="btn btn-danger" aria-label="Remove" title="Delete done task">
+                  class="btn btn-danger" aria-label="Remove" title="Delete done task" onclick="return confirm('Are you sure?')">
                   <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                 </button>
                 <?php } ?>

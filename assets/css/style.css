@@ -3,6 +3,10 @@ body{
 	padding-bottom: 30px;
 }
 
+.navbar-brand span.glyphicon{
+	margin-right: 5px;
+}
+
 .btn-xs, .btn-group-xs>.btn{
 	font-size: 10px;
 }
