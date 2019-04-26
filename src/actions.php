@@ -3,6 +3,10 @@
   // asking to save new task
   if (isset($_POST['new_task'])) {
 
+    // no empty messages
+    // super ugly but.... https://stackoverflow.com/a/8130438
+    if ($_POST['new_task'] == '') { break; }
+
     $action_sql = "
       INSERT INTO task_todo('title')
       VALUES(:xtitle);

@@ -1,5 +1,8 @@
 <?php
 
+  // for PHP SQLite3 class methods, see...
+  // https://www.php.net/manual/en/class.sqlite3.php
+
   // try to open database
   $sq = new SQLite3($todo_settings['database_file']);
 

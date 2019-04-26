@@ -47,6 +47,8 @@
         <div class="col-sm-10 col-sm-offset-1">
           <ul class="list-group">
             <?php
+              // multi submit in single form...
+              // https://stackoverflow.com/a/547848
               $task_counter = 0;
               while ($task = $results->fetchArray()) {
                 $task_counter++;
@@ -99,7 +101,7 @@
         <div class="row">
           <div class="col-sm-8 col-sm-offset-1">
             <input type="text" class="form-control" id="new-task-text" maxlength="250" 
-              name="new_task" placeholder="Title" required="required" />
+              name="new_task" placeholder="Title" required="required" autofocus="autofocus" />
           </div>
           <div class="col-sm-2">
             <button type="submit" class="btn btn-block btn-default">Add task</button>
