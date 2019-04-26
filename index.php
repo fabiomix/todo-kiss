@@ -43,7 +43,11 @@
       <div class="row">
         <div class="col-sm-10 col-sm-offset-1">
           <ul class="list-group">
-            <?php while ($task = $results->fetchArray()) { ?>
+            <?php
+              $task_counter = 0;
+              while ($task = $results->fetchArray()) {
+                $task_counter++;
+            ?>
             <li class="list-group-item">
               <form action="index.php" method="post" class="btn-group btn-group-xs pull-right" role="group">
                 <?php if ($task['done'] == False) { ?>
@@ -76,6 +80,14 @@
             </li>
           <?php } // end of while loop ?>
           </ul>
+
+          <?php if ($task_counter == 0 and $database_created) { ?>
+            <!-- notify database initialized -->
+            <div class="alert alert-info text-center" role="alert">A new database has been created!</div>
+          <?php } elseif ($task_counter == 0) { ?>
+            <!-- no results -->
+            <div class="alert alert-success text-center" role="alert">No tasks found. Add one now!</div>
+          <?php } ?>
 
         </div> <!-- /col-sm-10 -->
       </div> <!-- /row -->

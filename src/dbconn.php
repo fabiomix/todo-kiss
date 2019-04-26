@@ -19,11 +19,13 @@
   ";
 
   // check if database is initialized
+  $database_created = False;
   $table_exist_result = $sq->querySingle($table_exist_sql);
 
   // eventually, inizialize it now!
   if ($table_exist_result == 0) {
     $sq->exec($init_table_sql);
+    $database_created = True;
   }
 
 ?>
