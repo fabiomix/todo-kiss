@@ -15,6 +15,8 @@
 
   }
 
+  // --------------------------------------------
+
   $action_sql = False;
   $xid = False;
 
@@ -23,6 +25,14 @@
 
     $xid = $_POST['set_done'];
     $action_sql = "UPDATE task_todo SET done=1 WHERE id=:xid";
+
+  }
+
+  // we 'undo' a completed task
+  if (isset($_POST['set_todo']) and $todo_settings['allow_undo']) {
+
+    $xid = $_POST['set_todo'];
+    $action_sql = "UPDATE task_todo SET done=0 WHERE id=:xid";
 
   }
 

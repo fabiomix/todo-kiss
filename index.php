@@ -48,12 +48,19 @@
               <form action="index.php" method="post" class="btn-group btn-group-xs pull-right" role="group">
                 <?php if ($task['done'] == False) { ?>
                 <button type="submit" name="set_done" value="<?php echo $task['id']; ?>" 
-                  class="btn btn-default" aria-label="Set as done">
+                  class="btn btn-default" aria-label="Set as done" title="Set as done">
                   <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
                 </button>
-                <?php } else { ?>
+                <?php } ?>
+                <?php if ($task['done'] and $todo_settings['allow_undo']) { ?>
+                <button type="submit" name="set_todo" value="<?php echo $task['id']; ?>" 
+                  class="btn btn-default" aria-label="Set as todo" title="Reset as todo">
+                  <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>
+                </button>
+                <?php } ?>
+                <?php if ($task['done']) { ?>
                 <button type="submit" name="delete_task" value="<?php echo $task['id']; ?>" 
-                  class="btn btn-danger" aria-label="Remove">
+                  class="btn btn-danger" aria-label="Remove" title="Delete done task">
                   <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                 </button>
                 <?php } ?>
