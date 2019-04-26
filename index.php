@@ -3,6 +3,7 @@
   // todo-php main file - version 1.0.0
   require('src/settings.php');
   require('src/dbconn.php');
+  require('src/actions.php');
 
 ?>
 <!DOCTYPE html>
@@ -42,30 +43,43 @@
       <div class="row">
         <div class="col-sm-10 col-sm-offset-1">
           <ul class="list-group">
+            <?php while ($task = $results->fetchArray()) { ?>
             <li class="list-group-item">
-              <div class="btn-group btn-group-xs pull-right" role="group">
-                <button class="btn btn-default" aria-label="Set as done">
+              <form action="index.php" method="post" class="btn-group btn-group-xs pull-right" role="group">
+                <?php if ($task['done'] == False) { ?>
+                <button type="submit" name="set_done" value="<?php echo $task['id']; ?>" 
+                  class="btn btn-default" aria-label="Set as done">
                   Set as done
                 </button>
-                <button class="btn btn-danger" aria-label="Remove">
+                <?php } else { ?>
+                <button type="submit" name="delete_task" value="<?php echo $task['id']; ?>" 
+                  class="btn btn-danger" aria-label="Remove">
                   Delete
                 </button>
-              </div> <!-- /btn-group -->
+                <?php } ?>
+              </form> <!-- /btn-group -->
 
-              Lorem ipsum dolor sit amet
+              <?php
+                // print task content
+                // open/close <del> tag if task is done
+                if ($task['done']) { echo '<del>'; }
+                echo $task['title'];
+                if ($task['done']) { echo '</del>'; }
+              ?>
             </li>
+          <?php } // end of while loop ?>
           </ul>
 
         </div> <!-- /col-sm-10 -->
       </div> <!-- /row -->
 
-      <form>
+      <form action="index.php" method="post">
         <div class="row">
           <div class="col-sm-8 col-sm-offset-1">
-            <input type="text" class="form-control" placeholder="Title" required="required" />
+            <input type="text" class="form-control" name="new_task" placeholder="Title" required="required" />
           </div>
           <div class="col-sm-2">
-            <button type="submit" class="btn btn-block btn-default">Add</button>
+            <button type="submit" class="btn btn-block btn-default">Add task</button>
           </div>
         </div> <!-- /row -->
       </form>
