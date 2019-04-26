@@ -1,3 +1,10 @@
+<?php
+
+  // todo-php main file - version 1.0.0
+  require('src/settings.php');
+  require('src/dbconn.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
