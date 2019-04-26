@@ -1,0 +1,12 @@
+body{
+	padding-top: 80px;
+	padding-bottom: 30px;
+}
+
+.btn-xs, .btn-group-xs>.btn{
+	font-size: 10px;
+}
+
+#new-task-text{
+	margin-bottom: 5px;
+}

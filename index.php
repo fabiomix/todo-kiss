@@ -17,8 +17,8 @@
     <title>TO-DO</title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -49,12 +49,12 @@
                 <?php if ($task['done'] == False) { ?>
                 <button type="submit" name="set_done" value="<?php echo $task['id']; ?>" 
                   class="btn btn-default" aria-label="Set as done">
-                  Set as done
+                  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
                 </button>
                 <?php } else { ?>
                 <button type="submit" name="delete_task" value="<?php echo $task['id']; ?>" 
                   class="btn btn-danger" aria-label="Remove">
-                  Delete
+                  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                 </button>
                 <?php } ?>
               </form> <!-- /btn-group -->
@@ -76,7 +76,8 @@
       <form action="index.php" method="post">
         <div class="row">
           <div class="col-sm-8 col-sm-offset-1">
-            <input type="text" class="form-control" name="new_task" placeholder="Title" required="required" />
+            <input type="text" class="form-control" id="new-task-text" maxlength="250" 
+              name="new_task" placeholder="Title" required="required" />
           </div>
           <div class="col-sm-2">
             <button type="submit" class="btn btn-block btn-default">Add task</button>
