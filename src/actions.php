@@ -27,7 +27,7 @@
   // we have completed a task
   if (isset($_POST['set_done'])) {
 
-    $xid = $_POST['set_done'];
+    $xid = intval($_POST['set_done']);
     $action_sql = "UPDATE task_todo SET done=1 WHERE id=:xid";
 
   }
@@ -35,7 +35,7 @@
   // we 'undo' a completed task
   if (isset($_POST['set_todo']) and $todo_settings['allow_undo']) {
 
-    $xid = $_POST['set_todo'];
+    $xid = intval($_POST['set_todo']);
     $action_sql = "UPDATE task_todo SET done=0 WHERE id=:xid";
 
   }
@@ -43,7 +43,7 @@
   // we want to delete a completed task
   if (isset($_POST['delete_task'])) {
 
-    $xid = $_POST['delete_task'];
+    $xid = intval($_POST['delete_task']);
     $action_sql = "DELETE FROM task_todo WHERE id=:xid";
 
   }
