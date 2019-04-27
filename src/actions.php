@@ -60,7 +60,7 @@
 
   $task_list_sql = "
     SELECT * FROM task_todo
-    ORDER BY done desc, id desc;
+    ORDER BY done desc, id asc;
   ";
 
   // finally get the updated tasks list
