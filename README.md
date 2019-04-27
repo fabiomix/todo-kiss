@@ -3,6 +3,6 @@ todo-kiss is a simple self-hosted todo manager script with PHP and sqlite. "Kiss
 
 This project is inspired by prologic's [todo](https://github.com/prologic/todo) project written in Go.
 
-![screenshot](screenshot.png)
+![screenshot](screenshot.gif)
 
 The default theme is [Flatly](https://bootswatch.com/3/flatly/) from Bootswatch. You can change the theme or use a customized one simply by replacing the *assets/css/bootstrap.min.css* file.
