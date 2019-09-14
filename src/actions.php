@@ -4,19 +4,18 @@
   if (isset($_POST['new_task'])) {
 
     // no empty messages
-    // super ugly but.... https://stackoverflow.com/a/8130438
-    if ($_POST['new_task'] == '') { break; }
+    if ($_POST['new_task'] !== '') {
 
-    $action_sql = "
-      INSERT INTO task_todo('title')
-      VALUES(:xtitle);
-    ";
+      $action_sql = "
+        INSERT INTO task_todo('title')
+        VALUES(:xtitle);
+      ";
 
-    $statement = $sq->prepare($action_sql);
-    $statement->bindValue(':xtitle', $_POST['new_task']);
-    $statement->execute();
-    $statement->close();
-
+      $statement = $sq->prepare($action_sql);
+      $statement->bindValue(':xtitle', $_POST['new_task']);
+      $statement->execute();
+      $statement->close();
+    }
   }
 
   // --------------------------------------------
