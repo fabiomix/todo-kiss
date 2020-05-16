@@ -1,7 +1,7 @@
 # todo-kiss
 todo-kiss is a simple self-hosted todo manager script with PHP and sqlite. "Kiss" (Keep It Simple, Stupid) here is used to emphasize the minimalism of the app. 
 
-This project is inspired by prologic's [todo](https://github.com/prologic/todo) project written in Go.
+This project is inspired by [`prologic/todo`](https://github.com/prologic/todo), written in Go.
 
 ![screenshot](screenshot.gif)
 
